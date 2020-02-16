@@ -10,6 +10,8 @@ class Tooltip extends HTMLElement {
                     position: relative;
                     text-decoration-line: underline;
                     text-decoration-style: dashed;
+                    color: #ff8c00;
+                    cursor: help;
                 }
                 div {
                     background-color: grey;
