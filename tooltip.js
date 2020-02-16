@@ -2,7 +2,7 @@ class Tooltip extends HTMLElement {
     constructor() {
         super();
         this._tooltipContainer;
-        this._tooltipText = 'Some dummy tooltip text';
+        this._tooltipText;
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
             <style>
