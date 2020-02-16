@@ -6,6 +6,7 @@
     <title>Web Components</title>
     <script src="tooltip.js"></script>
     <script src="confirm-link.js"></script>
+    <script src="shareable.js"></script>
     <style>
         .container {
             font-family: Georgia, serif;
@@ -21,8 +22,17 @@
 <body>
     <div class="container">
         <h1>Web Components Examples</h1>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum enim minima <x-tooltip text="Web Components is a set of standards.">voluptas reiciendis eveniet</x-tooltip> laudantium deserunt dicta. Molestias fugiat ut excepturi, recusandae aut <a is="x-confirm-link" href="https://google.com">eveniet illo</a> natus. Autem dolorum praesentium laudantium.</p>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos delectus est sunt, architecto, similique iusto molestias nisi optio expedita totam quibusdam odit sequi quos quis deleniti perspiciatis, sed repellendus harum!</p>
+        <hr />
+        <h2>Tooltip Component Example</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum enim minima <x-tooltip text="Web Components is a set of standards.">voluptas reiciendis eveniet</x-tooltip> laudantium deserunt dicta. Molestias fugiat ut excepturi, recusandae aut eveniet illo natus. Autem dolorum praesentium laudantium.</p>
+        <h2>Confirm Link Component Example</h2>
+        <p>Lorem ipsum dolor, sit amet <a is="x-confirm-link" href="https://google.com">consectetur adipisicing</a> elit. Eos delectus est sunt, architecto, similique iusto molestias nisi optio expedita totam quibusdam odit sequi quos quis deleniti perspiciatis, sed repellendus harum!</p>
+        <h2>Shareable Component Example</h2>
+        <div is="x-shareable">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, perferendis harum inventore autem delectus, dicta unde voluptatum est esse nisi commodi sit enim placeat ipsa non totam voluptatem? Commodi, corporis.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, perferendis harum inventore autem delectus, dicta unde voluptatum est esse nisi commodi sit enim placeat ipsa non totam voluptatem? Commodi, corporis.</p>
+        </div>
     </div>
+    
 </body>
 </html>
