@@ -7,11 +7,13 @@
     <script src="tooltip.js"></script>
     <script src="confirm-link.js"></script>
     <script src="shareable.js"></script>
+    <script src="input-character-counter.js"></script>
     <style>
         .container {
             font-family: Georgia, serif;
             max-width: 700px;
             margin: 0 auto;
+            padding-bottom: 100px;
         }
 
         p {
@@ -32,6 +34,11 @@
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, perferendis harum inventore autem delectus, dicta unde voluptatum est esse nisi commodi sit enim placeat ipsa non totam voluptatem? Commodi, corporis.</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, perferendis harum inventore autem delectus, dicta unde voluptatum est esse nisi commodi sit enim placeat ipsa non totam voluptatem? Commodi, corporis.</p>
         </div>
+        <h2>Input Character Counter Example</h2>
+        <h4>With <code>maxlength</code> attribute</h4>
+        <input maxlength="15" type="text" is="x-character-counter" />
+        <h4>Without <code>maxlength</code> attribute</h4>
+        <input type="text" is="x-character-counter" />
     </div>
     
 </body>
