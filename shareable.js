@@ -4,8 +4,12 @@ class Shareable extends HTMLDivElement {
         this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
             <style>
+                .share-popup {
+                    background: #000;
+                }
             </style>
             <slot></slot>
+            <div class="share-popup"></div>
         `;
     }
 
