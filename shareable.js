@@ -1,3 +1,10 @@
+/*
+TODO:
+- create a separate method for displaying the modal
+- make sure that we hide the popup after we click outside the popup area
+- add Social Media buttons (create a separate component?)
+*/
+
 class Shareable extends HTMLDivElement {
     constructor() {
         super();
