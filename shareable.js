@@ -1,6 +1,5 @@
 /*
 TODO:
-- create a separate method for displaying the modal
 - make sure that we hide the popup after we click outside the popup area
 - add Social Media buttons (create a separate component?)
 */
@@ -9,6 +8,7 @@ class Shareable extends HTMLDivElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
+        this._showPopup = false;
         this._sharePopup;
         this.shadowRoot.innerHTML = `
             <style>
@@ -34,22 +34,31 @@ class Shareable extends HTMLDivElement {
         this._sharePopup = this.shadowRoot.querySelector('.share-popup');
 
         this.addEventListener('mouseup', event => {
-            this._sharePopup.style.display = "block";
-            this._getSelectionText();
+            this._render();
         });
+    }
+
+    _render() {
+        this._getSelectionText();   
+    }
+
+    _calculatePopupPosition(position) {
+        if(position.width) {
+            this._sharePopup.style.left = position.left + (position.width / 2) + "px";
+            this._sharePopup.style.top = position.top + window.pageYOffset - 45 + "px";
+            this._sharePopup.style.display = "block";
+        } else {
+            this._sharePopup.style.display = "none";
+        }
     }
 
     _getSelectionText() {
         let text = '';
 
         if (window.getSelection) {
-            const currentSelection = window.getSelection().getRangeAt(0).getBoundingClientRect();
-            text = window.getSelection().toString();
-
-            this._sharePopup.style.left = currentSelection.left + (currentSelection.width / 2) + "px";
-            this._sharePopup.style.top = currentSelection.top + window.pageYOffset - 45 + "px";
-        } else if ( document.selection && document.selection.type != 'Control' ) {
-            text = document.selection.getRange().text;
+            const getSelectionPosition = window.getSelection().getRangeAt(0).getBoundingClientRect();
+            this._calculatePopupPosition(getSelectionPosition);
+            text = window.getSelection().toString();   
         }
 
         return text;
