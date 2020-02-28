@@ -29,6 +29,16 @@ class Shareable extends HTMLDivElement {
                   -moz-box-shadow: 0 8px 6px -6px black;
                   box-shadow: 0 8px 6px -6px black;
                 }
+                .share-popup:before {
+                  content: ' ';
+                  height: 0;
+                  position: absolute;
+                  width: 0;
+                  left: 33px;
+                  top: 37px;
+                  border: 10px solid transparent;
+                  border-top-color: #000;
+                }
                 a {
                   color: #fff;
                   height: 100%;
