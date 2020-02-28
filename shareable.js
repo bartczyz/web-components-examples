@@ -18,27 +18,27 @@ class Shareable extends HTMLDivElement {
                 :host {
                 }
                 .share-popup {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    display: none;
-                    background: #000;
-                    padding: 3px 10px;
-                    border-radius: 3px;
-                    -webkit-box-shadow: 0 8px 6px -6px black;
-                    -moz-box-shadow: 0 8px 6px -6px black;
-                    box-shadow: 0 8px 6px -6px black;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  display: none;
+                  background: #000;
+                  padding: 3px 10px;
+                  border-radius: 3px;
+                  -webkit-box-shadow: 0 8px 6px -6px black;
+                  -moz-box-shadow: 0 8px 6px -6px black;
+                  box-shadow: 0 8px 6px -6px black;
                 }
                 a {
-                    color: #fff;
-                    height: 100%;
-                    display: inline-block;
-                    padding: 6px;
-                    vertical-align: middle;
-                    height: 20px;
+                  color: #fff;
+                  height: 100%;
+                  display: inline-block;
+                  padding: 6px;
+                  vertical-align: middle;
+                  height: 20px;
                 }
                 a:hover {
-                    background: #1a1919;
+                  background: #1a1919;
                 }
             </style>
             <slot></slot>
@@ -58,23 +58,6 @@ class Shareable extends HTMLDivElement {
   }
 
   _render() {
-    this._getSelectionText();
-  }
-
-  _calculatePopupPosition(position) {
-    if (position.width) {
-      this._sharePopup.style.left = position.left + position.width / 2 + "px";
-      this._sharePopup.style.top =
-        position.top + window.pageYOffset - 45 + "px";
-      this._sharePopup.style.display = "block";
-    } else {
-      this._sharePopup.style.display = "none";
-    }
-  }
-
-  _getSelectionText() {
-    this._selectionText = "";
-
     if (window.getSelection) {
       const getSelectionPosition = window
         .getSelection()
@@ -89,6 +72,23 @@ class Shareable extends HTMLDivElement {
           "href",
           `https://twitter.com/intent/tweet?status=${this._selectionText}`
         );
+
+      if (this._showPopup && this._selectionText.length <= 280) {
+        this._sharePopup.style.display = "block";
+      } else {
+        this._sharePopup.style.display = "none";
+      }
+    }
+  }
+
+  _calculatePopupPosition(position) {
+    if (position.width) {
+      this._sharePopup.style.left = position.left + position.width / 2 + "px";
+      this._sharePopup.style.top =
+        position.top + window.pageYOffset - 45 + "px";
+      this._showPopup = true;
+    } else {
+      this._showPopup = false;
     }
   }
 }
